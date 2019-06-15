@@ -1,0 +1,11 @@
+{
+  "name": "shopping-cart-express",
+  "version": "1.0.0",
+  "description": "a shopping-cart app form families to add, delete and check off shopping items",
+  "main": "index.js",
+  "scripts": {
+    "test": "export NODE_ENV= test && jasmine"
+  },
+  "author": "",
+  "license": "ISC"
+}
