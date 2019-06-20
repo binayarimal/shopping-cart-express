@@ -1,5 +1,7 @@
 module.exports = {
-  init(app, express){
+  init(app){
+    const shopListRoutes = require("../routes/shopList");
+    app.use(shopListRoutes);
 
-  }
-};
+}
+}
