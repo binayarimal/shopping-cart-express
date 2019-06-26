@@ -21,7 +21,7 @@ module.exports = {
   },
   addShopList(newShopList, callback){
       return ShopList.create({
-        title: newShopList.title,
+        name: newShopList.name,
         description: newShopList.description
       })
       .then((shopList) => {
@@ -31,9 +31,9 @@ module.exports = {
         callback(err);
       })
     },
-  deleteShopList(req, callback){
+  deleteShopList(id, callback){
 
-     return ShopList.findById(req.params.id)
+     return ShopList.findById(id)
      .then((shopList) => {
        shopList.destroy()
          .then((res) => {
@@ -45,7 +45,7 @@ module.exports = {
      });
    },
   updateShopList(req, updatedShopList, callback){
-      return ShopList.findById(req.params.id)
+      return ShopList.findById(req.params.id,updatedShopList)
       .then((shopList) => {
 
         if(!shopList){

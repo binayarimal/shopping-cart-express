@@ -1,11 +1,20 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   var ShopList = sequelize.define('ShopList', {
-    name: DataTypes.STRING,
-    description: DataTypes.STRING
+    name: {
+      allowNull: false,
+      type: DataTypes.TEXT
+    },
+    description:{
+      allowNull: false,
+      type: DataTypes.TEXT
+    },
   }, {});
   ShopList.associate = function(models) {
-    // associations can be defined here
+  ShopList.hasMany(models.Item, {
+    foreignKey:"shopListId",
+    as:"items"
+  })
   };
   return ShopList;
 };
