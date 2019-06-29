@@ -6,8 +6,4 @@ const routeConfig = require("./config/route-config.js");
  appConfig.init(app, express);
  routeConfig.init(app);
 
- app.get("/new", (req, res)=>{
-   res.json({test:"hello"})
- })
-
 module.exports = app;

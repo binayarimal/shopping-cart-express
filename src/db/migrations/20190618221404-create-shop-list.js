@@ -12,21 +12,27 @@ module.exports = {
         allowNull: false,
         type: Sequelize.TEXT
       },
-      description: {
-        allowNull: false,
-        type: Sequelize.TEXT
-      },
-      createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE
-      },
-      updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE
-      }
-    });
-  },
-  down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('ShopLists');
-  }
-};
+
+      userId:{
+          allowNull: false,
+          type: Sequelize.INTEGER
+        },
+        
+        description: {
+          allowNull: false,
+          type: Sequelize.TEXT
+        },
+        createdAt: {
+          allowNull: false,
+          type: Sequelize.DATE
+        },
+        updatedAt: {
+          allowNull: false,
+          type: Sequelize.DATE
+        }
+      });
+    },
+    down: (queryInterface, Sequelize) => {
+      return queryInterface.dropTable('ShopLists');
+    }
+  };

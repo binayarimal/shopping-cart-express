@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const jwtmiddleware = require("../auth/jwt-middleware.js")
 
 const shopListController = require("../controllers/shopListController.js")
 router.get("/shopList", shopListController.show);
