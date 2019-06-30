@@ -4,11 +4,12 @@
   "description": "a shopping-cart app form families to add, delete and check off shopping items",
   "main": "index.js",
   "scripts": {
-    "test": "set NODE_ENV=test&& jasmine",
-    "start": "node src/server.js",
-    "server": "node src/server.js",
-   "heroku-postbuild": "cd ../shopping-cart-react && npm install --only=dev && npm install && npm run build",
-  },
+      "test": "set NODE_ENV=test&& jasmine",
+      "start": "node src/server.js",
+      "server": "node src/server.js",
+      "client": "cd ../shopping-cart-react",
+      "dev": "concurrently \"npm run server\"\"npm run client\""
+    },
   "author": "",
   "license": "ISC",
   "devDependencies": {
