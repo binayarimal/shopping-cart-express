@@ -14,7 +14,7 @@ module.exports = {
         console.log(err)
       } else {
         passport.authenticate("local")(req, res, () => {
-          res.send("You've successfully signed in as a user")
+          res.send("success")
         })
       }
     });

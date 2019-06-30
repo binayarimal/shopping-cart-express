@@ -7,8 +7,7 @@
     "test": "set NODE_ENV=test&& jasmine",
     "start": "node src/server.js",
     "server": "node src/server.js",
-    "client": "cd ../shopping-cart-react",
-    "dev": "concurrently \"npm run server\"\"npm run client\""
+   "heroku-postbuild": "cd ../shopping-cart-react && npm install --only=dev && npm install && npm run build",
   },
   "author": "",
   "license": "ISC",
