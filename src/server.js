@@ -2,7 +2,9 @@ const app = require("./app");
 const http = require("http");
 const port = normalizePort(process.env.PORT || "5000");
  app.set("port", port);
-
+ if (process.env.NODE_ENV === 'production') {
+ 	app.use(express.static('client/build'));
+ }
  const server = http.createServer(app);
  server.listen(port);
 
