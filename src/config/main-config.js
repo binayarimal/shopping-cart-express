@@ -23,7 +23,7 @@ const viewsFolder = path.join(__dirname, "..", "public");
    passportConfig.init(app);
    app.use(expressValidator());
    app.get('*', (req,res) =>{
-       res.sendFile(path.join(__dirname+"..", "/client/build/index.html"));
+       res.sendFile(path.join(__dirname+'..', '/client/build/index.html'));
    });
 
 }
