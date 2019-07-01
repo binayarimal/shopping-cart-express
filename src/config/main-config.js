@@ -6,7 +6,7 @@ const session = require("express-session");
 const expressValidator = require("express-validator");
  module.exports = {
   init(app, express){
-    app.use(express.static(path.join(__dirname, "..", "assets")));
+    app.use(express.static(path.join(__dirname, "..", "client/build")));
     app.use(bodyParser.json());
     app.use(session({
    secret: process.env.cookieSecret,

@@ -6,7 +6,6 @@ const express = require('express');
 const server = http.createServer(app);
  app.set("port", port);
  server.listen(port);
- app.use(express.static(path.join(__dirname, 'client/build')))
  app.get('*', (req, res) => {
    res.sendFile(path.join(__dirname + '/client/build/index.html'))
  })
