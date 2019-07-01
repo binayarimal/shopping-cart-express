@@ -32,19 +32,20 @@ class App extends Component {
     routeAccess(){
       if(this.state.user !== null){
       return ( [
-         <li key = {1}>
-         <a className="nav-link" href= '*' onClick= {(e)=>this.signOut(e)}>Sign Out <span className="sr-only">(current)</span></a>
-         </li>,
+
+
+
          <li key = {3}>
-         <a className="nav-link" href= '/ShopList' >ShopList <span className="sr-only">(current)</span></a>
+         <Link className="nav-link" to= '/ShopList' >ShopList <span className="sr-only">(current)</span></Link>
          </li>,
+          <button className=" btn btn-danger float-left" onClick= {(e)=>this.signOut(e)}>Sign Out </button>
        ])
       } else{
        return ([<li key = {4}>
-        <a className="nav-link" href='/signIn'>Sign In <span className="sr-only">(current)</span></a>
+        <Link className="nav-link" to={'/signIn'}>Sign In <span className="sr-only">(current)</span></Link>
         </li>,
         <li key = {5}>
-        <a className="nav-link" href='/signUp'>Sign Up <span className="sr-only">(current)</span></a>
+        <Link className="nav-link" to={'/signUp'}>Sign Up <span className="sr-only">(current)</span></Link>
         </li>])
 
       }
@@ -73,11 +74,11 @@ class App extends Component {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav mr-auto">
         <li className="nav-item active" key = {2}>
-        <a className="nav-link" href="/">Home <span className="sr-only">(current)</span></a>
+          <Link to = {`/`}  className="nav-link">Home<span className="sr-only">(current)</span></Link>
         </li>
         {this.routeAccess()}
         </ul>
-  <Link to = {`/ShopList`}  class="btn btn-primary float-right">shopList</Link>
+
         </div>
         </nav>
         </header>
