@@ -6,8 +6,8 @@ const express = require('express');
 const server = http.createServer(app);
  app.set("port", port);
  server.listen(port);
- app.get('*', (req, res) => {
-   res.sendFile(path.join(__dirname + '/client/build/index.html'))
+ app.get('/', (req, res) => {
+   res.render("index.ejs")
  })
 
 
