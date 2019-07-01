@@ -15,11 +15,11 @@ const viewsFolder = path.join(__dirname, "..", "public");
 
     app.use(bodyParser.json());
     app.use(session({
-   secret: process.env.cookieSecret,
-   resave: false,
-   saveUninitialized: false,
-    cookie: { maxAge: 1.21e+9 }
- }));
+      secret: process.env.cookieSecret,
+      resave: false,
+      saveUninitialized: false,
+      cookie: { maxAge: 1.21e+9 } //set cookie to expire in 14 days
+    }));
    passportConfig.init(app);
    app.use(expressValidator());
 
