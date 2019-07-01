@@ -6,9 +6,7 @@ const express = require('express');
 const server = http.createServer(app);
  app.set("port", port);
  server.listen(port);
- app.get('/', (req, res) => {
-   res.render("index.ejs")
- })
+ 
 
 
  function normalizePort(val) {
