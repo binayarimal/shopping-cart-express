@@ -1,16 +1,19 @@
 const app = require("./app");
 const http = require("http");
 const port = normalizePort(process.env.PORT || "5000");
-const path = require('path')
-
+const path = require('path');
+const express = require('express');
+const server = http.createServer(app);
  app.set("port", port);
 
- const server = http.createServer(app);
  server.listen(port);
- app.use(express.static(path.join(__dirname, 'client/build')));
+
+ // Serve static files from the React frontend app
+ app.use(express.static(path.join(__dirname, 'client/build')))
+ // Anything that doesn't match the above, send back index.html
  app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname + '/client/build/index.html'))
-});
+   res.sendFile(path.join(__dirname + '/client/build/index.html'))
+ })
 
 
  function normalizePort(val) {
