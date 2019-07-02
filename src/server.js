@@ -5,9 +5,47 @@ const path = require('path');
 const express = require('express');
 const server = http.createServer(app);
 const history = require('connect-history-api-fallback');
+const socketIo = require('socket.io');
+const itemQueries = require('./db/Queries.items.js')
+const io = socketIo(server);
+app.set('socketio', io);
+io.on('connection', socket => {
+  console.log("user connected")
+  socket.on('give items', (id) => {
+    itemQueries.getAllitems(id, (err, items)=>{
+      if(err){
+      io.sockets.emit('err', err)
+      } else {
+      socket.emit('show items', items)
+      }
+    })
+  });
+  socket.on('post items', (data) => {
+      let newItem = {
+        title: data.item,
+        shopListId:data.shopListId
+      };
+      itemQueries.addItem(newItem, (err, item) => {
+        if(err){
+          console.log(err)
+        } else {
+          console.log("siccess");
+        }
+      })
+
+    })
+
+
+  socket.on('disconnect', () => {
+    console.log('user disconnected')
+  })
+});
+
+
 app.use(history());
  app.set("port", port);
  server.listen(port);
+
 
 
  if(process.env.NODE_ENV === 'production'){

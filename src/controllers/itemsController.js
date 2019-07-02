@@ -1,6 +1,6 @@
 const itemQueries = require("../db/Queries.items.js");
 module.exports = {
-  show (req, res, next){
+  show (id){
     itemQueries.getAllitems(req.params.id, (err, items)=>{
       if(err){
         res.send(err);
