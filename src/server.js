@@ -4,6 +4,8 @@ const port = normalizePort(process.env.PORT || "5000");
 const path = require('path');
 const express = require('express');
 const server = http.createServer(app);
+const history = require('connect-history-api-fallback');
+app.use(history());
  app.set("port", port);
  server.listen(port);
 
@@ -14,6 +16,7 @@ app.get('/', (req,res) =>{
     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
 });
 }
+
 
  function normalizePort(val) {
    const port = parseInt(val, 10);

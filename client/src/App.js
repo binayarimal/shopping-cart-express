@@ -21,7 +21,7 @@ class App extends Component {
 
         <div>
         <header>
-        <Nav history = {this.props.history}/>
+        <Nav/>
 
         </header>
         <main>

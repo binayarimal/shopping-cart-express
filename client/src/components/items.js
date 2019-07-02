@@ -27,7 +27,7 @@ class Items extends Component {
 
       axios.post(`/ShopList/${this.props.match.params.id}/create`,data)
       .then( (res) => {  this.componentDidMount();
-      console.log(res)})
+      })
       .catch(err => console.log(err));
     }
     statusHandler(e, item){
@@ -48,12 +48,11 @@ class Items extends Component {
     collabHandler(e){
         e.preventDefault();
           let body = {email:this.state.email};
-          console.log(body);
         axios.post(`/shopList/${this.props.match.params.id}/collab`, body)
         .then( res => this.componentDidMount() )
         .catch(err => console.log(err));
     }
-  deleteHandler(e, itemId){
+    deleteHandler(e, itemId){
         e.preventDefault();
         let id = itemId;
         axios.post(`/shopList/${this.props.match.params.id}/items/${id}/delete`, id)

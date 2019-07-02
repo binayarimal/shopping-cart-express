@@ -19,6 +19,7 @@
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.2",
     "concurrently": "^4.1.0",
+    "connect-history-api-fallback": "^1.6.0",
     "cookie-parser": "^1.4.4",
     "dotenv": "^5.0.0",
     "ejs": "^2.5.7",
