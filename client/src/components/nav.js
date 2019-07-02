@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 import {Link} from 'react-router-dom'
-import { createBrowserHistory } from 'history';
 
 class Nav extends Component {
 
@@ -19,25 +17,21 @@ class Nav extends Component {
     .then( () => {
       localStorage.removeItem('user');
       this.setState({user:null});
-      const history = createBrowserHistory();
-       history.push("/");
-       window.location.reload()})
-      .catch(err => console.log(err));
-    }
+      window.location.reload()
+    })
+    .catch(err => console.log(err));
+  }
 
-    routeAccess(){
-      if(this.state.user !== null){
+  routeAccess(){
+    if(this.state.user !== null){
       return ( [
-
-
-
-         <li key = {3}>
-         <Link className="nav-link" to= '/ShopList' >ShopList <span className="sr-only">(current)</span></Link>
-         </li>,
-          <button className=" btn btn-danger float-left" onClick= {(e)=>this.signOut(e)}>Sign Out </button>
-       ])
-      } else{
-       return ([<li key = {4}>
+        <li key = {3}>
+        <Link className="nav-link" to= '/ShopList' >ShopList <span className="sr-only">(current)</span></Link>
+        </li>,
+        <button className=" btn btn-danger float-left" onClick= {(e)=>this.signOut(e)}>Sign Out </button>
+      ])
+    } else{
+      return ([<li key = {4}>
         <Link className="nav-link" to={'/signIn'}>Sign In <span className="sr-only">(current)</span></Link>
         </li>,
         <li key = {5}>
@@ -68,7 +62,7 @@ class Nav extends Component {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav mr-auto">
         <li className="nav-item active" key = {2}>
-          <Link to = {`/`}  className="nav-link">Home<span className="sr-only">(current)</span></Link>
+        <Link to = {`/`}  className="nav-link">Home<span className="sr-only">(current)</span></Link>
         </li>
         {this.routeAccess()}
         </ul>

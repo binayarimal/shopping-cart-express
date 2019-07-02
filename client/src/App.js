@@ -9,7 +9,6 @@ import ShopList from './components/shopping';
 import Items from './components/items';
 import ShopListEdit from './components/shopListEdit';
 import 'bootstrap/dist/css/bootstrap.css';
-import {Link} from 'react-router-dom'
 
 
 class App extends Component {

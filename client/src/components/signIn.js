@@ -32,7 +32,7 @@ import React, { Component } from 'react';
           <label>Email</label>
           <input
           type="email"
-          class="form-control"
+          className="form-control"
           name="email"
           aria-describedby="emailHelp"
           placeholder="Enter email"
@@ -45,7 +45,7 @@ import React, { Component } from 'react';
           <label>Password</label>
           <input
            type="password"
-           class="form-control"
+           className="form-control"
            name="password"
            aria-describedby="passwordHelp"
            placeholder="Enter password"
@@ -54,7 +54,7 @@ import React, { Component } from 'react';
          </input>
         </div>
 
-        <button type="submit" class="btn btn-primary">Sign In</button>
+        <button type="submit" className="btn btn-primary">Sign In</button>
       </form>
     )
   }

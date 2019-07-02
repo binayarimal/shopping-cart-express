@@ -54,11 +54,11 @@ class ShopList extends Component {
           <input type="submit"/>
          </form>
          <div>
-          <ul class="list-group">
+          <ul className="list-group">
           {this.state.shopList.map((list,index) =>
-           <li key = {index} class="list-group-item">
+           <li key = {index} className="list-group-item">
             <Link  to = {`/ShopList/${list.id}`} >{list.name}</Link>
-            <button onClick = {(e)=>this.deleteHandler(e,list.id)} class="btn btn-danger float-right">delete</button>
+            <button onClick = {(e)=>this.deleteHandler(e,list.id)} className="btn btn-danger float-right">delete</button>
             <Link to = {`/ShopList/${list.id}/edit`}  class="btn btn-primary float-right">edit</Link>
 
            </li>
