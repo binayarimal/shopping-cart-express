@@ -21,7 +21,9 @@ import React, { Component } from 'react';
        .then( (res) => {
          if(res.data === "success"){
          localStorage.setItem('user',res.data);
-         this.props.history.push("/ShopList")} else
+         this.props.history.push("/");
+         window.location.reload();
+       } else
          {console.log(res.data)}
        }
        )
