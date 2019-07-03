@@ -61,7 +61,7 @@ class Items extends Component {
         e.preventDefault();
         let id = itemId;
         axios.post(`/shopList/${this.props.match.params.id}/items/${id}/delete`, id)
-        .then( res => console.log(res) )
+        .then( res => this.componentDidMount() )
         .catch(err => console.log(err));
       }
     render() {

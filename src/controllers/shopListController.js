@@ -11,7 +11,7 @@ module.exports = {
         console.log(err)
       } else {
         res.json(shopLists);
-      
+
       }
     })
   } else {

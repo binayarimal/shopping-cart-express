@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     shopListId: {
       allowNull: false,
-      type: DataTypes.TEXT
+      type: DataTypes.INTEGER
     },
     status: {
      type: DataTypes.TEXT,

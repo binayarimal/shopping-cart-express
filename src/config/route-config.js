@@ -7,7 +7,11 @@ module.exports = {
     app.use(shopListRoutes);
     app.use(itemsRoutes);
     app.use(userRoutes);
-    app.use(collabsRoutes)
+    app.use(collabsRoutes);
 
+    if(process.env.NODE_ENV === "test") {
+        const mockAuth = require("../../spec/support/mock-auth.js");
+        mockAuth.fakeIt(app);
+      }
 }
 }
