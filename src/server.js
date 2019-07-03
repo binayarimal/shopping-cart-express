@@ -14,7 +14,7 @@ io.on('connection', socket => {
   socket.on('give items', (id) => {
     itemQueries.getAllitems(id, (err, items)=>{
       if(err){
-      io.sockets.emit('err', err)
+      socket.emit('err', err)
       } else {
       socket.emit('show items', items)
       }
@@ -29,7 +29,8 @@ io.on('connection', socket => {
         if(err){
           console.log(err)
         } else {
-          console.log("siccess");
+          const message ="success";
+          socket.emit('success',message )
         }
       })
 

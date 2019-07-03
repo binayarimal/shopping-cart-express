@@ -9,7 +9,7 @@ class Items extends Component {
       item :"",
       itemList:[],
       email:"",
-      endpoint : "https://binayarimal-shopping-cart.herokuapp.com"
+      endpoint : "http://localhost:5000"
     }
   }
  setItemList(items){
@@ -31,7 +31,9 @@ class Items extends Component {
       shopListId:this.props.match.params.id
     };
     socket.emit('post items', data);
-    this.componentDidMount();
+    socket.on('success', (items) => {
+      this.componentDidMount()
+          });
     }
     statusHandler(e, item){
       e.preventDefault();
