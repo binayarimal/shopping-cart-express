@@ -9,7 +9,7 @@ class Items extends Component {
       item :"",
       itemList:[],
       email:"",
-      endpoint : "http://binayarimal-shopping-cart.herokuapp.com"
+      endpoint : "https://binayarimal-shopping-cart.herokuapp.com"
     }
   }
  setItemList(items){
