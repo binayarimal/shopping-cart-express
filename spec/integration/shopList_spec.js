@@ -1,6 +1,6 @@
 const request = require("request");
 const server = require("../../src/server");
-const base = "http://localhost:5000/shopList/create";
+const base = "http://localhost:5000/shopList"
 const sequelize = require("../../src/db/models/index").sequelize;
 const ShopList = require("../../src/db/models").ShopList;
 const User = require("../../src/db/models").User;
@@ -61,17 +61,17 @@ describe("POST /shopList/:shopListId/create", () => {
       const options = {
         url: `${base}/create`,
         form: {
-          name: "love",
-          description: "Post your Winter Games stories."
+          name: "shopper",
+          description: "I am a shopper"
         }
       };
       request.post(options,
         (err, res, body) => {
 
-          ShopList.findOne({where: {name: "love"}})
+          ShopList.findOne({where: {name: "shopper"}})
           .then((post) => {
-            expect(post.name).toBe("love");
-            expect(post.description).toBe("Post your Winter Games stories.");
+            expect(post.name).toBe("shopper");
+            expect(post.description).toBe("I am a shopper");
             done();
           })
           .catch((err) => {
