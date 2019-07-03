@@ -55,7 +55,7 @@ describe("routes : shopList", () => {
     );
   });
 })
-describe("POST /shopList/:shopListId/create", () => {
+describe("POST :shopListId/create", () => {
 
   it("should create a new post and redirect", (done) => {
       const options = {
