@@ -1,34 +1,37 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import io from "socket.io-client";
+
 class Items extends Component {
   constructor(){
     super()
     this.state={
       item :"",
       itemList:[],
-      email:""
+      email:"",
+      endpoint : "http://localhost:5000"
     }
   }
-
+ setItemList(items){
+   this.setState({itemList:items})
+ }
   componentDidMount(){
-
-    fetch(`/Shoplist/${this.props.match.params.id}`)
-    .then( res => res.json())
-    .then( items => this.setState({itemList:items}))
-    .catch(err => console.log(err))
-
+    const socket = io(this.state.endpoint);
+    socket.emit('give items', this.props.match.params.id);
+    socket.on('show items', (items) => {
+        console.log(items);
+        this.setItemList(items)
+          });
   }
   submitHandler(e){
+      const socket = io(this.state.endpoint);
     e.preventDefault();
     const data = {
       item:this.state.item,
       shopListId:this.props.match.params.id
     };
-
-      axios.post(`/ShopList/${this.props.match.params.id}/create`,data)
-      .then( (res) => {  this.componentDidMount();
-      })
-      .catch(err => console.log(err));
+    socket.emit('post items', data);
+    this.componentDidMount();
     }
     statusHandler(e, item){
       e.preventDefault();
