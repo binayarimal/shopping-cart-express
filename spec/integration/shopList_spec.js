@@ -67,11 +67,11 @@ describe("POST :shopListId/create", () => {
       };
       request.post(options,
         (err, res, body) => {
-
+         console.log(res.body);
           ShopList.findOne({where: {name: "shopper"}})
-          .then((post) => {
-            expect(post.name).toBe("shopper");
-            expect(post.description).toBe("I am a shopper");
+          .then((shopList) => {
+            expect(shopList.name).toBe("shopper");
+            expect(shopList.description).toBe("I am a shopper");
             done();
           })
           .catch((err) => {

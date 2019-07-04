@@ -36,19 +36,22 @@ class Items extends Component {
           });
     }
     statusHandler(e, item){
+      const socket = io(this.state.endpoint);
+      e.preventDefault();
+      let data ={itemId: item.id}
+      if (item.status === "added"){
+        socket.emit(`mark items`, data)
+        socket.on('success', (message)=>{
+         this.componentDidMount()
+     })
+    } else{
       e.preventDefault();
       let id ={itemId: item.id}
-      if (item.status === "added"){
-      axios.post(`/ShopList/${this.props.match.params.id}/items/${item.id}/mark`, id)
-      .then( (res) => {  this.componentDidMount();
-      console.log(res)})
-      .catch(err => console.log(err));
-    } else{
-      axios.post(`/ShopList/${this.props.match.params.id}/items/${item.id}/unMark`,id )
-      .then( (res) => {  this.componentDidMount();})
-        .catch(err => console.log(err));
+        socket.emit(`unmark items`, id)
+        socket.on('success', (message)=>{
+         this.componentDidMount()
+    })
     }
-
     }
     collabHandler(e){
         e.preventDefault();
@@ -58,11 +61,14 @@ class Items extends Component {
         .catch(err => console.log(err));
     }
     deleteHandler(e, itemId){
+      const socket = io(this.state.endpoint);
         e.preventDefault();
-        let id = itemId;
-        axios.post(`/shopList/${this.props.match.params.id}/items/${id}/delete`, id)
-        .then( res => this.componentDidMount() )
-        .catch(err => console.log(err));
+        let id = {itemId:itemId};
+        socket.emit(`delete items`, id);
+        socket.on('success', (message)=>{
+         this.componentDidMount()
+    })
+
       }
     render() {
       return (

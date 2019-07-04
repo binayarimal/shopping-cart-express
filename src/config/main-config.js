@@ -20,6 +20,7 @@ const viewsFolder = path.join(__dirname, "..", "public");
       saveUninitialized: false,
       cookie: { maxAge: 1.21e+9 } //set cookie to expire in 14 days
     }));
+
    passportConfig.init(app);
    app.use(expressValidator());
 

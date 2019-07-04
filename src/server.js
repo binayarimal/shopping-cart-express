@@ -27,10 +27,44 @@ io.on('connection', socket => {
     };
     itemQueries.addItem(newItem, (err, item) => {
       if(err){
-        console.log(err)
+        console.log(err);
       } else {
         const message ="success";
         io.emit('success',message )
+      }
+    })
+
+  });
+  socket.on('delete items', (data) => {
+    itemQueries.deleteItem(data.itemId, (err, item) => {
+      if(err){
+        console.log(err);
+      } else {
+        const message ="success";
+        io.emit('success',message)
+      }
+    })
+  })
+  socket.on("mark items", (data) =>{
+    itemQueries.mark(data.itemId, (err) => {
+      if (err){
+         console.log(err);
+      }
+      else {
+        const message="success";
+        io.emit("success", message)
+      }
+    })
+
+  })
+  socket.on("unmark items", (data) =>{
+    itemQueries.unMark(data.itemId, (err) => {
+      if (err){
+         console.log(err);
+      }
+      else {
+        const message = "success"
+        io.emit("success", message)
       }
     })
 

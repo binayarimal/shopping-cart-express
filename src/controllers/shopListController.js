@@ -3,6 +3,7 @@ const shopListQueries = require("../db/Queries.shopList.js");
 const authoroties = require("../authoroties.js")
 module.exports = {
   show (req, res, next){
+
     const authorized = new authoroties(req.user). _isLoggedIn();
     if(authorized){
     shopListQueries.getAllShopLists(req.user.id, (err, shopLists)=>{

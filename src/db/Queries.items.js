@@ -28,9 +28,9 @@ module.exports = {
       callback(err);
     })
   },
-  deleteItem(req, callback){
+  deleteItem(id, callback){
 
-    return Item.findById(req.params.id)
+    return Item.findById(id)
     .then((item) => {
       item.destroy()
       .then((res) => {
